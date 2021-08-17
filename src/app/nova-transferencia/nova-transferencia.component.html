@@ -1,0 +1,28 @@
+<div class="container shadow-lg p-3 mb-5 bg-white rounded" style="margin-top: 2cm; max-width: 50%;">
+  <div class="row d-flex justify-content-center">
+    <form (ngSubmit)="cadastrar()">
+      <div class="form-row ">
+        <div class="col-md-6">
+          <div class="col">
+            <label for="inputSecondName">Link Original</label>
+            <input type="text" class="form-control" style="margin-top: 5px;" placeholder="Link Original" [(ngModel)]="linkOriginal" name="linkOriginal" >
+          </div>
+          <div class="col" style="margin-top: 20px;">
+            <button type="submit" class="btn btn-primary">Encurtar Link</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="form-row">
+      <div *ngIf="linkReduzido">
+        <p style="margin-top: 10px;">Parabens o link foi reduzido com sucesso
+        <div *ngIf="copy == null">
+          <p>Link: {{linkReduzido}} <button class="btn btn-success" style="margin-left: 5px;" (click)="copyContent()"> Copiar link</button>
+        </div>
+        <div *ngIf="copy != null">
+          <p>Link: {{linkReduzido}} <button class="btn btn-success" disabled style="margin-left: 5px;"> link copiado</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
